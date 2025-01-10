@@ -1,27 +1,25 @@
 import json
 
 class TicTacToe:
-    def __init__(self, record_path):
-        pass
-        self.board = [['#'] * 3 for _ in range(3)]
+    def __init__(self, record_path, dimension):
+        self.dimension = dimension
+        self.board = [['#'] * self.dimension for _ in range(self.dimension)]
         self.player = True
         self.turns = 0
         self.record_path = record_path
         self.players_wins = {"Player1": 0, "Player2": 0}
 
     def show_board(self):
-        print("-----------")
         for row in self.board:
             for box in row:
                 print('', box, ' ', end='')
             print('')
-        print("-----------")
 
     def switch_player(self):
         self.player = True if self.player == False else False
 
     def _valid_coordinates(self, x, y):
-        if x not in [1,2,3] or y not in [1,2,3] or self.board[x-1][y-1] != '#':
+        if x not in range(1, self.dimension + 1) or y not in range(1, self.dimension + 1) or self.board[x-1][y-1] != '#':
             return True
         return False
 
@@ -49,31 +47,45 @@ class TicTacToe:
             correct_input = self._place_symbol(x,y)
     
     def _check_row_for_winner(self, symbol, n):
-        if self.board[n][0] == self.board[n][1] and self.board[n][0] ==  self.board[n][2] and self.board[n][0] == symbol:
-            return True
-        return False
+        flag = True
+        for i in range(0, self.dimension):
+            if symbol != self.board[n][i]:
+                flag = False
+                break
+        return flag
     
     def _check_col_for_winner(self, symbol, n):
-        if self.board[0][n] == self.board[1][n] and self.board[0][n] ==  self.board[2][n] and self.board[0][n] == symbol:
-            return True
-        return False
+        flag = True
+        for i in range(0, self.dimension):
+            if symbol != self.board[i][n]:
+                flag = False
+                break
+        return flag
     
     def _check_diagonal_for_winner(self, symbol):
-        if self.board[0][0] == self.board[1][1] and self.board[1][1] ==  self.board[2][2] and self.board[0][0] == symbol:
-            return True
-        if self.board[0][2] == self.board[1][1] and self.board[1][1] ==  self.board[2][0] and self.board[0][2] == symbol:
-            return True
-        return False
+        flag = True
+        for i in range(0, self.dimension):
+            if symbol != self.board[i][i]:
+                flag = False
+                break
+        if flag:
+            return flag
+        flag = True
+        for i in range(0, self.dimension):
+            if symbol != self.board[i][self.dimension - i - 1]:
+                flag = False
+                break
+        return flag
 
     def _check_winner(self, symbol):
-        if(self.turns == 9):
+        if(self.turns == self.dimension **2):
             return True, '#'
         winner_decided = False
-        for i in range(3):
+        for i in range(self.dimension):
             winner_decided = self._check_row_for_winner(symbol, i)
             if winner_decided:
                 return True, symbol
-        for i in range(3):
+        for i in range(self.dimension):
             winner_decided = self._check_col_for_winner(symbol, i)
             if winner_decided:
                 return True, symbol
@@ -81,7 +93,7 @@ class TicTacToe:
         return winner_decided, symbol
     
     def _reset_game(self):
-        self.board = [['#'] * 3 for _ in range(3)]
+        self.board = [['#'] * self.dimension for _ in range(self.dimension)]
         self.player = True
         self.turns = 0
 
@@ -145,5 +157,5 @@ class TicTacToe:
         self.store_records()
 
 
-game = TicTacToe(r"C:\Users\abdul\OneDrive\Desktop\trainings\tictactoe\TicTacToe.json")
+game = TicTacToe(r"C:\Users\abdul\OneDrive\Desktop\trainings\tictactoe\TicTacToe.json", 4)
 game.simulate()
