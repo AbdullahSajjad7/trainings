@@ -3,7 +3,7 @@ import json
 class TicTacToe:
     def __init__(self, record_path):
         pass
-        self.board = [['#','#','#'],['#','#','#'],['#','#','#']]
+        self.board = [['#'] * 3 for _ in range(3)]
         self.player = True
         self.turns = 0
         self.record_path = record_path
@@ -20,10 +20,15 @@ class TicTacToe:
     def switch_player(self):
         self.player = True if self.player == False else False
 
+    def _valid_coordinates(self, x, y):
+        if x not in [1,2,3] or y not in [1,2,3] or self.board[x-1][y-1] != '#':
+            return True
+        return False
+
     def _place_symbol(self, x, y):
         x = int(x)
         y = int(y)
-        if x not in [1,2,3] or y not in [1,2,3] or self.board[x-1][y-1] != '#':
+        if self._valid_coordinates(x, y):
             print("Cannot place symbol there")
             return False
         if self.player:
@@ -76,14 +81,17 @@ class TicTacToe:
         return winner_decided, symbol
     
     def _reset_game(self):
-        self.board = [['#','#','#'],['#','#','#'],['#','#','#']]
+        self.board = [['#'] * 3 for _ in range(3)]
         self.player = True
         self.turns = 0
 
     def fetch_records(self):
-        with open(self.record_path, 'r') as file_obj:
-            json_record = json.load(file_obj)
-            self.players_wins = json_record
+        try:
+            with open(self.record_path, 'r') as file_obj:
+                json_record = json.load(file_obj)
+                self.players_wins = json_record
+        except:
+            print (FileNotFoundError)
 
     def store_records(self):
         json_record = json.dumps(self.players_wins, indent=4)
@@ -137,6 +145,5 @@ class TicTacToe:
         self.store_records()
 
 
-
-game = TicTacToe(r"C:\Users\abdul\OneDrive\Desktop\Training\Games\TicTacToe.json")
+game = TicTacToe(r"C:\Users\abdul\OneDrive\Desktop\trainings\tictactoe\TicTacToe.json")
 game.simulate()
