@@ -19,3 +19,4 @@ print(power_func(0,0))
 print(power_func(0,2))
 print(power_func(-4,2))
 print(power_func(-4,-2))
+
