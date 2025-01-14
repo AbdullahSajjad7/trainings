@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "city": "Lahore",
+        "state": "Punjab",
+        "country": "Pakistan"
+    },
+    {
+        "id": 2,
+        "city": "Rawalpindi",
+        "state": "Punjab",
+        "country": "Pakistan"
+    },
+    {
+        "id": 3,
+        "city": "Karachi",
+        "state": "Sindh",
+        "country": "Pakistan"
+    },
+    {
+        "id": 4,
+        "city": "New York",
+        "state": "New York",
+        "country": "USA"
+    },
+    {
+        "id": 5,
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "USA"
+    },
+    {
+        "id": 6,
+        "city": "San Francisco",
+        "state": "California",
+        "country": "USA"
+    },
+    {
+        "id": 7,
+        "city": "London",
+        "state": "England",
+        "country": "United Kingdom"
+    },
+    {
+        "id": 8,
+        "city": "Manchester",
+        "state": "England",
+        "country": "United Kingdom"
+    },
+    {
+        "id": 9,
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "country": "India"
+    },
+    {
+        "id": 10,
+        "city": "Delhi",
+        "state": "Delhi",
+        "country": "India"
+    },
+    {
+        "id": 11,
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia"
+    },
+    {
+        "id": 12,
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia"
+    },
+    {
+        "id": 13,
+        "city": "Toronto",
+        "state": "Ontario",
+        "country": "Canada"
+    },
+    {
+        "id": 14,
+        "city": "Vancouver",
+        "state": "British Columbia",
+        "country": "Canada"
+    },
+    {
+        "id": 15,
+        "city": "Paris",
+        "state": "Île-de-France",
+        "country": "France"
+    },
+    {
+        "id": 16,
+        "city": "Berlin",
+        "state": "Berlin",
+        "country": "Germany"
+    },
+    {
+        "id": 17,
+        "city": "Tokyo",
+        "state": "Tokyo",
+        "country": "Japan"
+    },
+    {
+        "id": 18,
+        "city": "Osaka",
+        "state": "Osaka",
+        "country": "Japan"
+    },
+    {
+        "id": 19,
+        "city": "Dubai",
+        "state": "Dubai",
+        "country": "UAE"
+    },
+    {
+        "id": 20,
+        "city": "Abu Dhabi",
+        "state": "Abu Dhabi",
+        "country": "UAE"
+    }
+]
